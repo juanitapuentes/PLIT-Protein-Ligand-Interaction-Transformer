@@ -35,3 +35,10 @@ Below are the main executable scripts in the repository:
 - `main.py`: main training and validation script
 - `ensamble.py`: calculates metrics on the test set
 
+# Training
+
+
+# Evaluation
+
+# Demo
+
