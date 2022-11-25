@@ -1,1 +1,1 @@
-# PLIT: Protein-Ligand-Interaction-Transformer
+# PLIT: Protein-Ligand Interaction Transformer
