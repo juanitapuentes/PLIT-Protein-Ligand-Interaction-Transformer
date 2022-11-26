@@ -203,8 +203,8 @@ class ArgsInit(object):
             "--use_prot", action="store_true", default=False, help="Use protein info"
         )
         parser.add_argument(
-            "--use_bonds", action="store_true", default=True, help="Use bonds info"
-        )
+            "--use_bonds", action="store_true", default=False, help="Use bonds info"
+        )#
         parser.add_argument(
             "--freeze_molecule",
             action="store_true",
