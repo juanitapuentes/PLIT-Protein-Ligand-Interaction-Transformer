@@ -36,9 +36,14 @@ Below are the main executable scripts in the repository:
 - `ensamble.py`: calculates metrics on the test set
 
 # Training
-
+To train PLIT with the best experimentation results please refer to the plit.sh file.
 
 # Evaluation
+The final proposed method can be evaluated by running the following command:
+```
+python main.py --mode test
+```
+This will show the model's performance by loading the weights found in server `lambda002`. There are four paths in total correspondant to the model's weights, which are already included in the main script. 
 
 # Demo
 
