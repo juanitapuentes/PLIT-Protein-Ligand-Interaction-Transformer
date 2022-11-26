@@ -32,7 +32,7 @@ Below are the main directories in the repository:
 
 Below are the main executable scripts in the repository:
 
-- `main.py`: main training and validation script
+- `main.py`: main training and validation scripts. Demo modes
 - `ensamble.py`: calculates metrics on the test set
 
 # Training
