@@ -44,10 +44,11 @@ def eval(model, device, loader, num_classes, args):
 
     test_model_path = os.path.join(args.save)
 
-    test_model_path1 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/pruebaBONDS/Fold1/model_ckpt/Checkpoint_valid_best.pth"
-    test_model_path2 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/pruebaBONDS/Fold2/model_ckpt/Checkpoint_valid_best.pth"
-    test_model_path3 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/pruebaBONDS/Fold3/model_ckpt/Checkpoint_valid_best.pth"
-    test_model_path4 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/pruebaBONDS/Fold4/model_ckpt/Checkpoint_valid_best.pth"
+    test_model_path1 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/LM/2H4C_008/Fold1/model_ckpt/Checkpoint_valid_best.pth"
+    test_model_path2 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/LM/2H4C_008/Fold2/model_ckpt/Checkpoint_valid_best.pth"
+    test_model_path3 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/LM/2H4C_008/Fold3/model_ckpt/Checkpoint_valid_best.pth"
+    test_model_path4 = "/media/SSD3/jpuentes/ENTREGAFINAL/BaselineAML/log/results/LM/2H4C_008/Fold4/model_ckpt/Checkpoint_valid_best.pth"
+
 
     # LOAD MODELS
     print("------- Loading weights----------")
@@ -206,6 +207,7 @@ def main(target):
     else:
         model = Transformer(args).to(device)
 
+
     acc, auc, f, nap, xx, xxx = eval(model, device, test_loader, args.nclasses, args)
 
     save_items = {"Target": [], "NAP": [], "AUC": [], "ACC": [], "F_Med": []}
@@ -308,20 +310,8 @@ if __name__ == "__main__":
         PLIT_single(args)
 
     elif args.target is None:
-
         PLIT_test(args)
 
-        '''targets = ['aa2ar']
-        
-        results = {'Target': [], 'Mean_Test': []}
-        
-        for target in targets:
-            nap_result = main(target)
-            results['Target'].append(target)
-            results['Mean_Test'].append(nap_result)
-        
-        torch.save(results,os.path.join(args.save,'Overall_test_results.pth'))
-        print('Mean Test: {}'.format(np.mean(results['Mean_Test'])))'''
 
     else:
         main()
