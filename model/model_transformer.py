@@ -130,16 +130,28 @@ class Transformer(torch.nn.Module):
         pad_list = []
         mask_list = []
 
-        for ind in range(1, input_batch.ptr.shape[0]):
-        
-            atoms = (input_batch.ptr[ind-1], input_batch.ptr[ind])
-            h_ = h_prev[atoms[0]:atoms[1]]
-            padded = torch.nn.functional.pad(h_, (0, 0, 0, max - h_.shape[0]))
+        if self.args.mode == "demo":
+            matrix = h_prev
+
+            padded = torch.nn.functional.pad(matrix, (0, 0, 0, max - matrix.shape[0]))
             pad_list.append(padded)
-            ones = torch.ones(h_.shape)
-            ones = torch.cat((ones, torch.zeros((128 - h_.shape[0], 128))))
+            ones = torch.ones(matrix.shape)
+            ones = torch.cat((ones, torch.zeros((max - matrix.shape[0], max))))
+
             for i in range(2):
                 mask_list.append(ones)
+
+        else:
+            for ind in range(1, input_batch.ptr.shape[0]):
+
+                atoms = (input_batch.ptr[ind - 1], input_batch.ptr[ind])
+                h_ = h_prev[atoms[0]:atoms[1]]
+                padded = torch.nn.functional.pad(h_, (0, 0, 0, max - h_.shape[0]))
+                pad_list.append(padded)
+                ones = torch.ones(h_.shape)
+                ones = torch.cat((ones, torch.zeros((128 - h_.shape[0], 128))))
+                for i in range(2):
+                    mask_list.append(ones)
 
         padded_batch = torch.stack(pad_list, 0).to(self.device)
         mask_batch = torch.stack(mask_list, 0).to(self.device)
