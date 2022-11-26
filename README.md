@@ -36,7 +36,7 @@ Below are the main executable scripts in the repository:
 - `ensamble.py`: calculates metrics on the test set
 
 # Training
-To train PLIT with the best experimentation results please refer to the plit.sh file.
+To train PLIT with the best experimentation results please refer to the `plit.sh` file.
 
 # Evaluation
 The final proposed method can be evaluated by running the following command:
