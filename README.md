@@ -53,6 +53,11 @@ This will show the model's performance by loading the weights found in server `l
 
 # Demo
 To use the model in order to calculate the result of evaluating one single molecule please select the `demo` mode and enter the string of the raw smiles representation of the molecule of interest. An example is shown below:
+
+```
+python main.py --mode demo --molecule [molecule's SMILES sequence]
+```
+For example,
 ```
 python main.py --mode demo --molecule "Cc3c[nH]c4ncnc(N2CC[C@H](NS(=O)(=O)c1ccccc1)C2)c34"
 ```
