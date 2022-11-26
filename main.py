@@ -563,16 +563,12 @@ if __name__ == "__main__":
 
     if args.mode == "test":
         args.save = "TestResults/test"
-        args.use_bonds = True
         args.batch_size = 30
-        args.use_bonds = True
         PLIT_test(args)
 
     elif args.mode == "demo":
         args.save = "TestResults/demo"
-        args.use_bonds = True
         args.batch_size = 30
-        args.use_bonds = True
         PLIT_single(args)
 
     else:
